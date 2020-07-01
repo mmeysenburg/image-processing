@@ -11,7 +11,7 @@ objectives:
 - "Use CCA to produce an image that highlights every object in a different color."
 - "Characterize each object with numbers that describe its appearance."
 keypoints:
-- "`skimage.measure.label` is used to generate objects."
+- "`skimage.measure.` is used to generate objects."
 - "We use `skimage.measure.regionprops` to measure properties of labelled objects."
 - "Color objects according to feature values."
 ---
@@ -212,7 +212,7 @@ viewer = skimage.viewer.ImageViewer(mask)
 viewer.show()
 
 # Perform CCA on the mask
-labeled_image = skimage.measure.label(mask, connectivity=2, return_num=True)
+labeled_image, count = skimage.measure.label(mask, connectivity=2, return_num=True)
 
 viewer = skimage.viewer.ImageViewer(labeled_image)
 viewer.show()
@@ -244,14 +244,14 @@ What went wrong?
 When we hover with the mouse over this black image, the underlying pixel values are shown as numbers in the lower left corner.
 We can see that in some positions they are not `0`, but still this image is black.
 
-Let's find out more by examining `label_image`.
+Let's find out more by examining `labeled_image`.
 Properties that might be interesting in this context are `dtype`, the minimum and maximum value.
 We can do so by adding the following lines:
 
 ~~~
-print("dtype:", label_image.dtype)
-print("min:", numpy.min(label_image))
-print("max:", numpy.max(label_image))
+print("dtype:", labeled_image.dtype)
+print("min:", numpy.min(labeled_image))
+print("max:", numpy.max(labeled_image))
 ~~~
 {: .python}
 
@@ -264,7 +264,7 @@ max: 11
 ~~~
 {: .output}
 
-The `dtype` of `label_image` is `int64`.
+The `dtype` of `labeled_image` is `int64`.
 This means that values in this image range from `-2 ** 63` to `2 ** 63 - 1`.
 Those are really big numbers.
 From this available space we only use the range from `0` to `11`.
@@ -278,11 +278,11 @@ All objects are objects are colored according to a list of colors that can be cu
 In order to see our objects, we can add the following code to our program:
 
 ~~~
-# convert the label image to color image
-colored_label_image = skimage.color.label2rgb(labeled_image, bg_label=0)
+# convert the labeled_image to color image
+colored_labeled_image = skimage.color.label2rgb(labeled_image, bg_label=0)
 
 # show the created image in the viewer
-viewer = skimage.viewer.Viewer(colored_label_image)
+viewer = skimage.viewer.Viewer(colored_labeled_image)
 viewer.show()
 ~~~
 {: .python}
