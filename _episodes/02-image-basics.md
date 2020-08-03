@@ -1,7 +1,7 @@
 ---
 title: "Image Basics"
-teaching: 35
-exercises: 15
+teaching: 20
+exercises: 5
 questions:
 - "How are images represented in digital format?"
 objectives:
@@ -151,7 +151,7 @@ integers in [0, 255], representing the red, green, and blue channels,
 respectively. A larger number in a channel means that more of that primary 
 color is present. 
 
-> ## Thinking about RGB colors (3 min)
+> ## Thinking about RGB colors (5 min)
 > 
 > Suppose that we represent colors as triples (r, g, b), where each of r, g, 
 > and b is an integer in [0, 255]. What colors are represented by each of these
@@ -191,7 +191,7 @@ After completing the previous challenge, we can look at some further examples
 of 24-bit RGB colors, in a visual way. The image in the next challenge shows 
 some color names, their 24-bit RGB triplet values, and the color itself.
 
-> ## RGB color table (4 min)
+> ## RGB color table (optional, not included in timing)
 > 
 > ![RGB color table](../fig/01-color-table.png)
 > 
@@ -269,7 +269,7 @@ the concept.
 
 Let's begin our discussion of compression with a simple challenge. 
 
-> ## BMP image size (8 min)
+> ## BMP image size (optional, not included in timing)
 > 
 > Imagine that we have a fairly large, but very boring image: a 5,000 × 5,000 
 > pixel image composed of nothing but white pixels. If we used an uncompressed 
@@ -346,7 +346,7 @@ your liking. It supports 24-bit color depth, and since the format is so
 widely used, JPEG images can be viewed and manipulated easily on all 
 computing platforms.
 
-> ## Examining actual image sizes (5 min)
+> ## Examining actual image sizes (optional, not included in timing)
 > 
 > Let us see the effects of image compression on image size with actual images.
 > Open a terminal and navigate to the **Desktop/workshops/image-processing/02-image-basics**
@@ -368,7 +368,7 @@ computing platforms.
 > {: .solution}
 {: .challenge}
 
-> ## Comparing lossless versus lossy compression (8 min)
+> ## Comparing lossless versus lossy compression (optional, not included in timing)
 > 
 > Let us see a hands-on example of lossless versus lossy compression. Once again, 
 > open a terminal and navigate to the **Desktop/workshops/image-processing/02-image-basics**

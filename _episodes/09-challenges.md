@@ -1,7 +1,7 @@
 ---
 title: "Challenges"
-teaching: 30
-exercises: 0
+teaching: 10
+exercises: 40
 questions:
 - "What are the questions?"
 objectives:

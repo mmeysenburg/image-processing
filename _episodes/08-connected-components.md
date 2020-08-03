@@ -1,7 +1,7 @@
 ---
 title: "Connected Component Analysis"
-teaching: ??
-exercises: ??
+teaching: 70
+exercises: 45
 questions:
 - "How to extract separate objects from an image and describe these objects quantitatively."
 objectives:
@@ -121,7 +121,7 @@ With two jumps, however, we only get a single objects, as pixels are also consid
 {: .output}
 
 
-> ## Exercise: Object counting
+> ## Object counting (optional, not included in timing)
 >
 > How many objects with 1 orthogonal jump, how many with 2 orthogonal jumps?
 >

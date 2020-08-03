@@ -1,7 +1,7 @@
 ---
 title: "Drawing and Bitwise Operations"
-teaching: 20
-exercises: 60
+teaching: 45
+exercises: 45
 questions:
 - "How can we draw on skimage images and use bitwise operations and masks to
 select certain parts of an image?"
@@ -151,7 +151,7 @@ Here is what our constructed mask looks like:
 
 ![Maize image mask](../fig/03-maize-mask.png)
 
-> ## Other drawing operations (10 min)
+> ## Other drawing operations (15 min)
 > 
 > There are other functions for drawing on images, in addition to the 
 > `skimage.draw.rectangle()` function. We can draw circles, lines, text, and
@@ -239,7 +239,7 @@ All that remains is the task of modifying the image using our mask in such a
 way that the areas with `True` pixels in the mask are not shown in the image
 any more.
 
-> ## How does a mask work?
+> ## How does a mask work? (optional, not included in timing)
 > 
 > Now, consider the mask image we created above. The values of the mask that 
 > corresponds to the portion of the image we are interested in are all `False`,
@@ -302,7 +302,7 @@ The resulting masked image should look like this:
 
 ![Applied mask](../fig/03-applied-mask.jpg)
 
-> ## Masking an image of your own (optional)
+> ## Masking an image of your own (optional, not included in timing)
 > 
 > Now, it is your turn to practice. Using your mobile phone, tablet, webcam, or
 > digital camera, take an image of an object with a simple overall geometric 
@@ -352,7 +352,7 @@ The resulting masked image should look like this:
 > {: .solution}
 {: .challenge}
 
-> ## Masking a 96-well plate image (50 min)
+> ## Masking a 96-well plate image (30 min)
 > 
 > Consider this image of a 96-well plate that has been scanned on a flatbed 
 > scanner. 
@@ -421,7 +421,7 @@ The resulting masked image should look like this:
 > {: .solution}
 {: .challenge}
 
-> ## Masking a 96-well plate image, take two (optional)
+> ## Masking a 96-well plate image, take two (optional, not included in timing)
 > 
 > If you spent some time looking at the contents of the **centers.txt** file
 > from the previous challenge, you may have noticed that the centers of each

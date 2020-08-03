@@ -1,7 +1,7 @@
 ---
 title: "Thresholding"
-teaching: 30
-exercises: 65
+teaching: 60
+exercises: 50
 questions:
 - "How can we use thresholding to produce a binary image?"
 objectives:
@@ -196,6 +196,9 @@ colored shapes from the original, as shown in this image:
 > > spike near 0.3 represents the darker background, so it seems like a `t` value
 > > close to 0.5 would be a good choice.
 > {: .solution}
+{: .challenge}
+
+> ## Blurring plus thresholding (20 min)
 > 
 > Now, modify the **ThresholdPractice.py** program in the 
 > **Desktop/workshops/image-processing/07-thresholding** directory to turn the 
@@ -566,7 +569,7 @@ bash rootmass.sh > rootmass.csv
 ~~~
 {: .bash}
 
-> ## Ignoring more of the images -- brainstorming (10 min)
+> ## Ignoring more of the images -- brainstorming (10 min - optional, not included in timing)
 > 
 > Let us take a closer look at the binary images produced by the 
 > proceeding program. 
@@ -608,7 +611,7 @@ bash rootmass.sh > rootmass.csv
 > {: .solution}
 {: .challenge}
 
-> ## Ignoring more of the images -- implementation (30 min)
+> ## Ignoring more of the images -- implementation (30 min - optional, not included in timing)
 > 
 > Navigate to the **Desktop/workshops/image-processing/07-thresholding** 
 > directory, and edit the **RootMassImproved.py** program. This is a copy of 
@@ -697,7 +700,7 @@ bash rootmass.sh > rootmass.csv
 > {: .solution}
 {: .challenge}
 
-> ## Thresholding a bacteria colony image (10 min)
+> ## Thresholding a bacteria colony image (15 min)
 > 
 > In the **Desktop/workshops/image-processing/07-thresholding** directory, you 
 > will find an image named **colonies01.tif**; this is one of the images you

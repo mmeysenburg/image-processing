@@ -1,7 +1,7 @@
 ---
 title: "Blurring images"
-teaching: 10
-exercises: 40
+teaching: 35
+exercises: 25
 questions:
 - "How can we apply a low-pass blurring filter to an image?"
 objectives:
@@ -198,7 +198,7 @@ sigma. This is done with the
 line of code. The `float()` function takes a string as its parameter, and returns
 the floating point number equivalent.
 
-> ## What happens if the `float()` parameter does not look like a number? (10 min)
+> ## What happens if the `float()` parameter does not look like a number? (10 min - optional, not included in timing)
 > 
 > In the program fragment, we are using the `float()` function to *parse* the
 > second command-line argument, which comes in to the program as a string, 
@@ -313,7 +313,7 @@ applying a filter with a sigma of 3.0.
 
 ![Gaussian blurred image](../fig/05-gaussian-blurred.png)
 
-> ## Experimenting with sigma values (5 min)
+> ## Experimenting with sigma values (10 min)
 > 
 > Navigate to the **Desktop/workshops/image-processing/06-blurring** directory
 > and execute the **GaussBlur.py** script, which contains the program shown
@@ -341,7 +341,7 @@ applying a filter with a sigma of 3.0.
 > {: .solution}
 {: .challenge}
 
-> ## Experimenting with kernel shape (10 min)
+> ## Experimenting with kernel shape (10 min - optional, not included in timing)
 > 
 > Now, modify the **GaussBlur.py** program so that it takes *three*
 > command-line parameters instead of two. The first parameter should still be
