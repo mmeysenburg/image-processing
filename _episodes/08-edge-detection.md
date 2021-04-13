@@ -140,7 +140,7 @@ Next, the original images is read, in grayscale, and displayed.
 ~~~
 # load and display original image as grayscale
 image = skimage.io.imread(fname=filename, as_gray=True)
-viewer = skimage.viewer(image=image)
+viewer = skimage.viewer.ImageViewer(image=image)
 viewer.show()
 ~~~
 {: .python}
