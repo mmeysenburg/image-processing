@@ -3,8 +3,8 @@
  *
  * usage: python GaussBlur.py <filename> <sigma>
 """
-import skimage
-from skimage.viewer import ImageViewer
+import skimage.io
+import skimage.filters
 import sys
 
 # get filename and kernel size from command line
@@ -13,8 +13,7 @@ sigma = float(sys.argv[2])
 
 # read and display original image
 image = skimage.io.imread(fname=filename)
-viewer = ImageViewer(image)
-viewer.show()
+skimage.io.imshow(image)
 
 # apply Gaussian blur, creating a new image
 blurred = skimage.filters.gaussian(
@@ -22,5 +21,4 @@ blurred = skimage.filters.gaussian(
 )
 
 # display blurred image
-viewer = ImageViewer(blurred)
-viewer.show()
+skimage.io.imshow(blurred)

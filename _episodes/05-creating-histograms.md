@@ -51,7 +51,6 @@ import sys
 import numpy as np
 import skimage.color
 import skimage.io
-import skimage.viewer
 from matplotlib import pyplot as plt
 
 # read image, based on command line filename argument;
@@ -59,8 +58,7 @@ from matplotlib import pyplot as plt
 image = skimage.io.imread(fname=sys.argv[1], as_gray=True)
 
 # display the image
-viewer = skimage.viewer.ImageViewer(image)
-viewer.show()
+skimage.io.imshow(image)
 ~~~
 {: .python}
 
@@ -195,7 +193,6 @@ the program produces this histogram:
 > > import numpy as np
 > > import skimage.draw
 > > import skimage.io
-> > import skimage.viewer
 > > from matplotlib import pyplot as plt
 > >
 > > # read image, based on command line filename argument;
@@ -203,8 +200,7 @@ the program produces this histogram:
 > > img = skimage.io.imread(fname=sys.argv[1], as_gray=True)
 > >
 > > # display the image
-> > viewer = skimage.viewer.ImageViewer(img)
-> > viewer.show()
+> > skimage.io.imshow(img)
 > >
 > > # create mask here, using np.zeros() and skimage.draw.rectangle()
 > > mask = np.zeros(shape=img.shape, dtype="bool")
@@ -249,7 +245,6 @@ color histograms starts in a familiar way:
 """
 import sys
 import skimage.io
-import skimage.viewer
 from matplotlib import pyplot as plt
 
 # read original image, in full color, based on command
@@ -257,8 +252,7 @@ from matplotlib import pyplot as plt
 image = skimage.io.imread(fname=sys.argv[1])
 
 # display the image
-viewer = skimage.viewer.Viewer(image)
-viewer.show()
+skimage.io.imshow(image)
 ~~~
 {: .python}
 
@@ -413,7 +407,6 @@ Finally we label our axes and display the histogram, shown here:
 > > """
 > > import sys
 > > import skimage.io
-> > import skimage.viewer
 > > import skimage.draw
 > > import numpy as np
 > > from matplotlib import pyplot as plt
@@ -423,13 +416,12 @@ Finally we label our axes and display the histogram, shown here:
 > > image = skimage.io.imread(fname=sys.argv[1])
 > >
 > > # display the original image
-> > viewer = skimage.viewer.ImageViewer(image)
-> > viewer.show()
+> > skimage.io.imshow(image)
 > >
 > > # create a circular mask to select the 7th well in the first row
 > > # WRITE YOUR CODE HERE
 > > mask = np.zeros(shape=image.shape[0:2], dtype="bool")
-> > circle = skimage.draw.circle(240, 1053, radius=49, shape=image.shape[:2])
+> > circle = skimage.draw.disk((240, 1053), radius=49, shape=image.shape[:2])
 > > mask[circle] = 1
 > >
 > > # just for display:
@@ -442,8 +434,7 @@ Finally we label our axes and display the histogram, shown here:
 > > # create a new window and display maskedImg, to verify the
 > > # validity of your mask
 > > # WRITE YOUR CODE HERE
-> > viewer = skimage.viewer.ImageViewer(masked_img)
-> > viewer.show()
+> > skimage.io.imshow(masked_img)
 > >
 > > # list to select colors of each channel line
 > > colors = ("red", "green", "blue")

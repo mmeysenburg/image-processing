@@ -5,7 +5,6 @@
 import sys
 import skimage.draw
 import skimage.io
-import skimage.viewer
 import numpy as np
 from matplotlib import pyplot as plt
 
@@ -14,8 +13,7 @@ from matplotlib import pyplot as plt
 image = skimage.io.imread(fname=sys.argv[1], as_gray=True)
 
 # display the image
-viewer = skimage.viewer.ImageViewer(image)
-viewer.show()
+skimage.io.imshow(image)
 
 # create mask here, using np.zeros() and skimage.draw.rectangle()
 # WRITE YOUR CODE HERE

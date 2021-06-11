@@ -56,20 +56,17 @@ image. (Note that the display portion is used here for pedagogical purposes; it
  * Python program to use skimage drawing tools to create a mask.
  *
 """
-import skimage
-from skimage.viewer import ImageViewer
+import skimage.io
+import skimage.draw
 import numpy as np
 
 # Load and display the original image
 image = skimage.io.imread("maize-roots.tif")
-viewer = ImageViewer(image)
-viewer.show()
+skimage.io.imshow(image)
 ~~~
 {: .python}
 
-As before, we first import `skimage`. We also import the NumPy library, and give
-it an alias of `np`. NumPy is necessary when we create the initial mask image,
-and the alias saves us a little typing. Then, we load and display the initial
+As before, we first import the `io`submodule of `skimage` (`skimage.io`). This time, we will also import the `draw` submodule. We also import the NumPy library, and give it an alias of `np`. NumPy is necessary when we create the initial mask image, and the alias saves us a little typing. Then, we load and display the initial
 image in the same way we have done before.
 
 NumPy allows indexing of images/arrays with "boolean" arrays of the same size.
@@ -142,8 +139,7 @@ The final section of the program displays the mask we just created:
 
 ~~~
 # Display constructed mask
-viewer = ImageViewer(mask)
-viewer.show()
+skimage.io.imshow(mask)
 ~~~
 {: .python}
 
@@ -190,8 +186,8 @@ Here is what our constructed mask looks like:
 > > """
 > > import random
 > > import numpy as np
-> > import skimage
-> > from skimage.viewer import ImageViewer
+> > import skimage.draw
+> > import skimage.io
 > >
 > > # create the black canvas
 > > image = np.zeros(shape=(600, 800, 3), dtype="uint8")
@@ -200,9 +196,9 @@ Here is what our constructed mask looks like:
 > > for i in range(15):
 > >     x = random.random()
 > >     if x < 0.33:
-> >         rr, cc = skimage.draw.circle(
+> >         rr, cc = skimage.draw.disk((
 > >             random.randrange(600),
-> >             random.randrange(800),
+> >             random.randrange(800)),
 > >             radius=50,
 > >             shape=image.shape[0:2],
 > >         )
@@ -226,8 +222,7 @@ Here is what our constructed mask looks like:
 > >     image[rr, cc] = color
 > >
 > > # display the results
-> > viewer = ImageViewer(image)
-> > viewer.show()
+> > skimage.io.imshow(image)
 > > ~~~
 > > {: .python}
 > {: .solution}
@@ -266,8 +261,8 @@ original image and create the mask in the same way as before:
  *
 """
 import numpy as np
-import skimage
-from skimage.viewer import ImageViewer
+import skimage.io
+import skimage.draw
 
 # Load the original image
 image = skimage.io.imread("maize-roots.tif")
@@ -293,8 +288,7 @@ image[mask] = 0
 Then, we display the masked image.
 
 ~~~
-viewer = ImageViewer(image)
-viewer.show()
+skimage.io.imshow(image)
 ~~~
 {: .python}
 
@@ -330,8 +324,8 @@ The resulting masked image should look like this:
 > >  *
 > > """
 > > import numpy as np
-> > import skimage
-> > from skimage.viewer import ImageViewer
+> > import skimage.io
+> > import skimage.draw
 > >
 > > # Load the original image
 > > image = skimage.io.imread("./fig/03-remote-control.jpg")
@@ -345,8 +339,7 @@ The resulting masked image should look like this:
 > >
 > > # Apply the mask and display the result
 > > image[mask] = 0
-> > viewer = ImageViewer(image)
-> > viewer.show()
+> > skimage.io.imshow(image)
 > > ~~~
 > > {: .python}
 > {: .solution}
@@ -388,8 +381,8 @@ The resulting masked image should look like this:
 > >  * in a standardized scanned 96-well plate image.
 > > """
 > > import numpy as np
-> > import skimage
-> > from skimage.viewer import ImageViewer
+> > import skimage.io
+> > import skimage.draw
 > > import sys
 > >
 > > # read in original image
@@ -449,8 +442,8 @@ The resulting masked image should look like this:
 > >  * using a file with well center location.
 > > """
 > > import numpy as np
-> > import skimage
-> > from skimage.viewer import ImageViewer
+> > import skimage.io
+> > import skimage.draw
 > > import sys
 > >
 > > # read in original image

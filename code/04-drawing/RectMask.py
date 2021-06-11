@@ -3,13 +3,12 @@
  *
 """
 import numpy as np
-import skimage
-from skimage.viewer import ImageViewer
+import skimage.io
+import skimage.draw
 
 # Load the original image
 image = skimage.io.imread("maize-roots.tif")
-viewer = ImageViewer(image)
-viewer.show()
+skimage.io.imshow(image)
 
 # Create the basic mask
 mask = np.ones(shape=image.shape[0:2], dtype="bool")
@@ -20,5 +19,4 @@ mask[rr, cc] = False
 
 # Apply the mask and display the result
 image[mask] = 0
-viewer = ImageViewer(mask)
-viewer.show()
+skimage.io.imshow(mask)

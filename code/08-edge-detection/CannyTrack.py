@@ -4,7 +4,7 @@
  *
  * usage: python CannyTrack.py <filename>
 """
-import skimage
+import skimage.io
 import skimage.feature
 import skimage.viewer
 import sys

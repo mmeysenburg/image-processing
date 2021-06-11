@@ -5,7 +5,6 @@
 """
 import sys
 import skimage.io
-import skimage.viewer
 import numpy as np
 from matplotlib import pyplot as plt
 
@@ -14,8 +13,7 @@ from matplotlib import pyplot as plt
 image = skimage.io.imread(fname=sys.argv[1])
 
 # display the image
-viewer = skimage.viewer.ImageViewer(image)
-viewer.show()
+skimage.io.imshow(image)
 
 # tuple to select colors of each channel line
 colors = ("red", "green", "blue")

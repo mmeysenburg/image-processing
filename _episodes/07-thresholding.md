@@ -96,17 +96,15 @@ import numpy as np
 import skimage.color
 import skimage.filters
 import skimage.io
-import skimage.viewer
 
 # get filename, sigma, and threshold value from command line
 filename = sys.argv[1]
-sigma = float(sys.argv[2])
+my_sigma = float(sys.argv[2])
 t = float(sys.argv[3])
 
 # read and display the original image
 image = skimage.io.imread(fname=filename)
-viewer = skimage.viewer.ImageViewer(image)
-viewer.show()
+skimage.io.imshow(image)
 ~~~
 {: .python}
 
@@ -115,7 +113,7 @@ manipulate, the sigma of the Gaussian used during the blurring step (which, if y
 from the [Blurring]({{ page.root }}/06-blurring/) episode, must be a float),
 and finally, the threshold value `t`, which should be a float in the closed
 range [0.0, 1.0]. The program takes the command-line values and stores them in
-variables named `filename`, `sigma`, and `t`, respectively.
+variables named `filename`, `my_sigma`, and `t`, respectively.
 
 Next, the program reads the original image based on the `filename` value, and
 displays it. 
@@ -162,8 +160,7 @@ sel = np.zeros_like(image)
 sel[mask] = image[mask]
 
 # display the result
-viewer = skimage.viewer.ImageViewer(sel)
-viewer.show()
+skimage.io.imshow(sel)
 ~~~
 {: .python}
 
@@ -223,7 +220,6 @@ colored shapes from the original, as shown in this image:
 > > import skimage.color
 > > import skimage.fiters
 > > import skimage.io
-> > import skimage.viewer
 > >
 > > # get filename, sigma, and threshold value from command line
 > > filename = sys.argv[1]
@@ -232,8 +228,7 @@ colored shapes from the original, as shown in this image:
 > >
 > > # read and display the original image
 > > image = skimage.io.imread(fname=filename)
-> > viewer = skimage.viewer.ImageViewer(image)
-> > viewer.show()
+> > skimage.io.imshow(image)
 > >
 > > # blur and grayscale before thresholding
 > > blur = skimage.color.rgb2gray(image)
@@ -244,16 +239,14 @@ colored shapes from the original, as shown in this image:
 > > mask = blur > t
 > >
 > > # display the mask image
-> > viewer = skimage.viewer.ImageViewer(mask)
-> > viewer.show()
+> > skimage.io.imshow(mask)
 > >
 > > # use the mask to select the "interesting" part of the image
 > > sel = np.zeros_like(image)
 > > sel[mask] = image[mask]
 > >
 > > # display the result
-> > viewer = skimage.viewer.ImageViewer(sel)
-> > viewer.show()
+> > skimage.io.imshow(sel)
 > > ~~~
 > > {: .python}
 > > 
@@ -311,7 +304,6 @@ import numpy as np
 import skimage.color
 import skimage.filters
 import skimage.io
-import skimage.viewer
 
 # get filename and sigma value from command line
 filename = sys.argv[1]
@@ -319,8 +311,7 @@ sigma = float(sys.argv[2])
 
 # read and display the original image
 image = skimage.io.imread(fname=filename)
-viewer = skimage.viewer.ImageViewer(image)
-viewer.show()
+skimage.io.imshow(image)
 ~~~
 {: .python}
 
@@ -360,16 +351,14 @@ the computed threshold value is 0.42, and the resulting mask is:
 Next, we display the mask and use it to select the foreground
 
 ~~~
-viewer = skimage.viewer.ImageViewer(mask)
-viewer.show()
+skimage.io.imshow(mask)
 
 # use the mask to select the "interesting" part of the image
 sel = np.zeros_like(image)
 sel[mask] = image[mask]
 
 # display the result
-viewer = skimage.viewer.ImageViewer(sel)
-viewer.show()
+skimage.io.imshow(sel)
 ~~~
 {: .python}
 

@@ -6,7 +6,6 @@
 import sys
 import skimage.draw
 import skimage.io
-import skimage.viewer
 import numpy as np
 from matplotlib import pyplot as plt
 
@@ -15,8 +14,7 @@ from matplotlib import pyplot as plt
 image = skimage.io.imread(fname=sys.argv[1])
 
 # display the original image
-viewer = skimage.viewer.ImageViewer(image)
-viewer.show()
+skimage.io.imshow(image)
 
 # create a circular mask to select the 7th well in the first row
 # WRITE YOUR CODE HERE

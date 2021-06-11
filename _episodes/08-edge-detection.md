@@ -122,9 +122,8 @@ variables.
  *
  * usage: python CannyEdge.py <filename> <sigma> <low_threshold> <high_threshold>
 """
-import skimage
+import skimage.io
 import skimage.feature
-import skimage.viewer
 import sys
 
 # read command-line arguments
@@ -140,8 +139,7 @@ Next, the original images is read, in grayscale, and displayed.
 ~~~
 # load and display original image as grayscale
 image = skimage.io.imread(fname=filename, as_gray=True)
-viewer = skimage.viewer(image=image)
-viewer.show()
+skimage.io.imshow(image)
 ~~~
 {: .python}
 
@@ -171,8 +169,7 @@ found in the original.
 
 ~~~
 # display edges
-viewer = skimage.viewer.ImageViewer(edges)
-viewer.show()
+skimage.io.imshow(edges)
 ~~~
 {: .python}
 
@@ -243,7 +240,7 @@ grayscale, and creating a window.
  *
  * usage: python CannyTrack.py <filename>
 """
-import skimage
+import skimage.io
 import skimage.feature
 import skimage.viewer
 import sys
@@ -251,7 +248,7 @@ import sys
 
 filename = sys.argv[1]
 image = skimage.io.imread(fname=filename, as_gray=True)
-viewer = skimage.viewer.ImageViewer(image)
+viewer = skimage.io.imshow(image)
 ~~~
 {: .python}
 

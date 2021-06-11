@@ -3,9 +3,8 @@
  *
  * usage: python CannyEdge.py <filename> <sigma> <low_threshold> <high_threshold>
 """
-import skimage
+import skimage.io
 import skimage.feature
-import skimage.viewer
 import sys
 
 # read command-line arguments
@@ -16,8 +15,7 @@ high_threshold = float(sys.argv[4])
 
 # load and display original image as grayscale
 image = skimage.io.imread(fname=filename, as_gray=True)
-viewer = skimage.viewer.ImageViewer(image)
-viewer.show()
+skimage.io.imshow(image)
 
 # perform Canny edge detection
 edges = skimage.feature.canny(
@@ -28,5 +26,4 @@ edges = skimage.feature.canny(
 )
 
 # display edges
-viewer = skimage.viewer.ImageViewer(edges)
-viewer.show()
+skimage.io.imshow(edges)

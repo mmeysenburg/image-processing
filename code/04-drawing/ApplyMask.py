@@ -3,8 +3,8 @@
  *
 """
 import numpy as np
-import skimage
-from skimage.viewer import ImageViewer
+import skimage.io
+import skimage.draw
 
 # Load the original image
 image = skimage.io.imread("maize-roots.tif")
@@ -18,5 +18,4 @@ mask[rr, cc] = False
 
 # Apply the mask and display the result
 image[mask] = 0
-viewer = ImageViewer(image)
-viewer.show()
+skimage.io.imshow(image)

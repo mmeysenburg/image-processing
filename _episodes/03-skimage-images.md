@@ -110,18 +110,11 @@ named `image`.
 Next, we will do something with the image:
 
 ~~~
-import skimage.viewer
-
-# display image
-viewer = skimage.viewer.ImageViewer(image)
-viewer.show()
+skimage.io.imshow(image)
 ~~~
 {: .python}
 
-Once we have the image in the program, we next import the `viewer` module of skimage
-(`skimage.viewer`) and display it using `skimage.viewer.ImageViewer()`, which
-returns a `ImageViewer` object we store in the `viewer` variable.
-We then call `viewer.show()` in order to display the image.
+Once we have the image in the program, we next call `skimage.io.imshow()` in order to display the image.
 
 Next, we will save the image in another format:
 
@@ -266,14 +259,12 @@ We will start by reading the image and displaying it.
 """
 import sys
 import skimage.io
-import skimage.viewer
 
 # read input image, based on filename parameter
 image = skimage.io.imread(fname=sys.argv[1])
 
 # display original image
-viewer = skimage.viewer.ImageViewer(image)
-viewer.show()
+skimage.io.imshow(image)
 ~~~
 {: .python}
 
@@ -311,8 +302,7 @@ Now we can threshold the image and display the result.
 image[image < 128] = 0
 
 # display modified image
-viewer = skimage.viewer.ImageViewer(image)
-viewer.show()
+skimage.io.imshow(image)
 ~~~
 {: .python}
 
@@ -354,21 +344,18 @@ extraneous background detail has been removed.
 > > """
 > > import sys
 > > import skimage.io
-> > import skimage.viewer
 > >
 > > # read input image, based on filename parameter
 > > image = skimage.io.imread(fname=sys.argv[1])
 > >
 > > # display original image
-> > viewer = skimage.viewer.ImageViewer(image)
-> > viewer.view()
+> > skimage.io.imshow(img)
 > >
 > > # change high intensity pixels to gray
 > > image[image > 200] = 64
 > >
 > > # display modified image
-> > viewer = skimage.viewer.ImageViewer(image)
-> > viewer.view()
+> > skimage.io.imshow(img)
 > > ~~~
 > > {: .python}
 > {: .solution}
@@ -396,20 +383,17 @@ because using floating point numbers is numerically more stable.
 """
 import sys
 import skimage.io
-import skimage.viewer
 import skimage.color
 
 # read input image, based on filename parameter
 image = skimage.io.imread(fname=sys.argv[1])
 
 # display original image
-viewer = skimage.viewer.ImageViewer(image)
-viewer.show()
+skimage.io.imshow(image)
 
 # convert to grayscale and display
 gray_image = skimage.color.rgb2gray(image)
-viewer = skimage.viewer.ImageViewer(gray_image)
-viewer.show()
+skimage.io.imshow(gray_image)
 ~~~
 {: .python}
 
@@ -424,15 +408,13 @@ We can also load color images as grayscale directly by passing the argument `as_
 """
 import sys
 import skimage.io
-import skimage.viewer
 import skimage.color
 
 # read input image, based on filename parameter
 image = skimage.io.imread(fname=sys.argv[1], as_gray=True)
 
 # display grayscale image
-viewer = skimage.viewer.ImageViewer(image)
-viewer.show()
+skimage.io.imshow(image)
 ~~~
 {: .python}
 
@@ -479,12 +461,10 @@ A program to create the subimage would start by loading the image:
  * NumPy array slicing.
 """
 import skimage.io
-import skimage.viewer
 
 # load and display original image
 image = skimage.io.imread(fname="board.jpg")
-viewer = skimage.viewer.ImageViewer(image)
-viewer.show()
+skimage.io.imshow(image)
 ~~~
 {: .python}
 
@@ -494,8 +474,7 @@ create a new image with our selected area and then display the new image.
 ~~~
 # extract, display, and save sub-image
 clip = image[60:151, 135:481, :]
-viewer = skimage.viewer.ImageViewer(clip)
-viewer.show()
+skimage.io.imshow(clip)
 skimage.io.imsave(fname="clip.tif", arr=clip)
 ~~~
 {: .python}
@@ -506,8 +485,7 @@ We can also change the values in an image, as shown next.
 # replace clipped area with sampled color
 color = image[330, 90]
 image[60:151, 135:481] = color
-viewer = skimage.viewer.ImageViewer(image)
-viewer.show()
+skimage.io.imshow(image)
 ~~~
 {: .python}
 
@@ -542,18 +520,15 @@ the program:
 > >  * roots in an existing image.
 > > """
 > > import skimage.io
-> > import skimage.viewer
 > >
 > > # load and display original image
 > > image = skimage.io.imread(fname="roots.jpg")
-> > viewer = skimage.viewer.ImageViewer(image)
-> > viewer.show()
+> > skimage.io.imshow(image)
 > >
 > > # extract, display, and save sub-image
 > > # WRITE YOUR CODE TO SELECT THE SUBIMAGE NAME clip HERE:
 > > clip = image[0:1999, 1410:2765, :]
-> > viewer = skimage.viewer.ImageViewer(clip)
-> > viewer.show()
+> > skimage.io.imshow(clip)
 > >
 > >
 > > # WRITE YOUR CODE TO SAVE clip HERE

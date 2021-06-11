@@ -5,17 +5,14 @@
 """
 import sys
 import skimage.io
-import skimage.viewer
 import skimage.color
 
 # read input image, based on filename parameter
 image = skimage.io.imread(fname=sys.argv[1])
 
 # display original image
-viewer = skimage.viewer.ImageViewer(image)
-viewer.show()
+skimage.io.imshow(image)
 
 # convert to grayscale and display
 gray_image = skimage.color.rgb2gray(image)
-viewer = skimage.viewer.ImageViewer(gray_image)
-viewer.show()
+skimage.io.imshow(gray_image)

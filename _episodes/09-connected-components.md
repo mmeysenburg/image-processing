@@ -187,7 +187,6 @@ import numpy as np
 import skimage.color
 import skimage.filters
 import skimage.io
-import skimage.viewer
 import skimage.measure
 import skimage.color
 
@@ -198,8 +197,7 @@ t = float(sys.argv[3])
 
 # read and display the original image
 image = skimage.io.imread(fname=filename, as_gray=True)
-viewer = skimage.viewer.ImageViewer(image)
-viewer.show()
+skimage.io.imshow(image)
 
 # blur and grayscale before thresholding
 blur = skimage.filters.gaussian(image, sigma=sigma)
@@ -214,8 +212,7 @@ viewer.show()
 # Perform CCA on the mask
 labeled_image = skimage.measure.label(mask, connectivity=2, return_num=True)
 
-viewer = skimage.viewer.ImageViewer(labeled_image)
-viewer.show()
+skimage.io.imshow(labeled_image)
 ~~~
 {: .python}
 
@@ -282,8 +279,7 @@ In order to see our objects, we can add the following code to our program:
 colored_label_image = skimage.color.label2rgb(labeled_image, bg_label=0)
 
 # show the created image in the viewer
-viewer = skimage.viewer.ImageViewer(colored_label_image)
-viewer.show()
+skimage.io.imshow(colored_label_image)
 ~~~
 {: .python}
 
