@@ -166,14 +166,14 @@ Here is what our constructed mask looks like:
 > ![Sample shapes](../fig/03-draw-practice.jpg)
 > 
 > Circles can be drawn with the `skimage.draw.circle()` function, which takes three
-> parameters: x, y point of the center of the circle, and the radius of the
+> parameters: (y, x) coordinate of the center of the circle, and the radius of the
 > filled circle. There is an optional `shape` parameter that can be supplied to
 > this function. It will limit the output coordinates for cases where the circle
 > dimensions exceed the ones of the image.
 > 
 > Lines can be drawn with the `skimage.draw.line()` function, which takes four
-> parameters: the image to draw on, the (x, y) coordinate of one end of the
-> segment, the (x, y) coordinate of the other end of the segment, and the color
+> parameters: the image to draw on, the (y, x) coordinate of one end of the
+> segment, the (y, x) coordinate of the other end of the segment, and the color
 > for the line.
 > 
 > Other drawing functions supported by skimage can be found in the 
