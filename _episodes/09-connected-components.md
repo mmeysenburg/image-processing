@@ -244,14 +244,14 @@ What went wrong?
 When we hover with the mouse over this black image, the underlying pixel values are shown as numbers in the lower left corner.
 We can see that in some positions they are not `0`, but still this image is black.
 
-Let's find out more by examining `label_image`.
+Let's find out more by examining `labeled_image`.
 Properties that might be interesting in this context are `dtype`, the minimum and maximum value.
 We can do so by adding the following lines:
 
 ~~~
-print("dtype:", label_image.dtype)
-print("min:", numpy.min(label_image))
-print("max:", numpy.max(label_image))
+print("dtype:", labeled_image.dtype)
+print("min:", numpy.min(labeled_image))
+print("max:", numpy.max(labeled_image))
 ~~~
 {: .python}
 
@@ -264,7 +264,7 @@ max: 11
 ~~~
 {: .output}
 
-The `dtype` of `label_image` is `int64`.
+The `dtype` of `labeled_image` is `int64`.
 This means that values in this image range from `-2 ** 63` to `2 ** 63 - 1`.
 Those are really big numbers.
 From this available space we only use the range from `0` to `11`.
@@ -279,10 +279,10 @@ In order to see our objects, we can add the following code to our program:
 
 ~~~
 # convert the label image to color image
-colored_label_image = skimage.color.label2rgb(labeled_image, bg_label=0)
+colored_labeled_image = skimage.color.label2rgb(labeled_image, bg_label=0)
 
 # show the created image in the viewer
-viewer = skimage.viewer.ImageViewer(colored_label_image)
+viewer = skimage.viewer.ImageViewer(colored_labeled_image)
 viewer.show()
 ~~~
 {: .python}
